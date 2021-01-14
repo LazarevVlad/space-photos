@@ -1,0 +1,30 @@
+// color variables
+
+$color-white: #FFFFFF;
+$color-black: #000000;
+/* media variables */
+
+$media-xxs: 320px;
+$media-xs: 480px;
+$media-sm: 768px;
+$media-md: 1024px;
+$media-lg: 1200px;
+$media-xl: 1440px;
+$media-xxl: 1920px;
+
+@mixin media-min($media) {
+  @media screen and (min-width: $media) {
+    @content;
+  }
+}
+
+
+// font-family variables
+
+// $font-default: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+// $font-monument: Monument Extended, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+// $font-aeroport: Aeroport, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+// transition variables
+$transition: all 0.1s linear;
+$transition-long: all 0.3s ease-out;
