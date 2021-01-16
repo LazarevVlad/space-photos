@@ -19,7 +19,7 @@ function Main() {
       })
     })
     .catch((err) => console.log(`Ошибка ${err}`))
-  })
+  }, [])
 
   return(
     <div className="main">
