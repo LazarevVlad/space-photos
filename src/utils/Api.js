@@ -42,8 +42,19 @@ class Api {
     .catch((err) => Api._getError(err));
   }
 
-  getPhotoFromCuriosity(rover, sol, camera, ) {
-    return fetch(`${this.options.baseUrl}/mars-photos/api/v1/rover/${rover}/photos?/sol=${sol}&camera=${camera}&${this.options.apiKey}`, {
+  getPhotoFromRover(rover, sol, camera, ) {
+    return fetch(`${this.options.baseUrl}/mars-photos/api/v1/rover/${rover}/photos?/sol=${sol}&camera=${camera}&api_key=${this.options.apiKey}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((res) => Api._getResponseData(res))
+    .catch((err) => Api._getError(err));
+  }
+
+  getInfo(rover) {
+    return fetch(`${this.options.baseUrl}/mars-photos/api/v1/manifests/${rover}&api_key=${this.options.apiKey}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
