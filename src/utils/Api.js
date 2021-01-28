@@ -42,8 +42,8 @@ class Api {
     .catch((err) => Api._getError(err));
   }
 
-  getPhotoFromRover(rover, sol, camera, ) {
-    return fetch(`${this.options.baseUrl}/mars-photos/api/v1/rover/${rover}/photos?/sol=${sol}&camera=${camera}&api_key=${this.options.apiKey}`, {
+  getPhotoFromRover(rover, sol, camera) {
+    return fetch(`${this.options.baseUrl}/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&camera=${camera}&api_key=${this.options.apiKey}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -53,8 +53,8 @@ class Api {
     .catch((err) => Api._getError(err));
   }
 
-  getInfo(rover) {
-    return fetch(`${this.options.baseUrl}/mars-photos/api/v1/manifests/${rover}&api_key=${this.options.apiKey}`, {
+  getRoverInfo(rover) {
+    return fetch(`${this.options.baseUrl}/mars-photos/api/v1/manifests/${rover}?&api_key=${this.options.apiKey}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

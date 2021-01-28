@@ -1,7 +1,10 @@
 .nav-bar-inner {
-
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav-bar-inner__item {
-  
+  text-decoration: none;
+  color: $color-black;
 }

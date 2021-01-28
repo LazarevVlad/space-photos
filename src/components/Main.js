@@ -1,6 +1,5 @@
 import React ,{ useState, useEffect } from "react";
 import api from '../utils/Api';
-import '../scss/styles/main.scss';
 
 function Main() {
   // const {} = props;

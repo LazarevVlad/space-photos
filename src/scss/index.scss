@@ -1,8 +1,15 @@
-@import './constants.scss';
-@import './base.scss';
+@import './constants';
+@import './base';
 
-@import '../vendor/fonts.scss';
-@import './text-style.scss';
+@import '../vendor/fonts';
+@import './text-style';
 
-@import './styles/app.scss';
-@import './styles/header.scss';
+@import './styles/app';
+@import './styles/header';
+@import './styles/main';
+@import './styles/mars';
+@import './styles/nav-bar';
+@import './styles/nav-bar-inner';
+@import './styles/rover';
+@import './styles/photo-grid';
+@import './styles/card';
