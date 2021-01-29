@@ -1,0 +1,18 @@
+.button {
+  box-sizing: border-box;
+  padding: 15px 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #8b00ff;
+  color: $color-white;
+  @include button();
+  cursor: pointer;
+  transition: $transition;
+  outline: none;
+
+  &:hover {
+    opacity: .7;
+  }
+}

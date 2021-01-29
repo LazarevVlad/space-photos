@@ -1,10 +1,22 @@
 .nav-bar-inner {
-  width: 300px;
   display: flex;
-  justify-content: space-between;
+
+  & > * + * {
+    margin-left: 30px;
+  }
 }
 
 .nav-bar-inner__item {
   text-decoration: none;
+  @include head-2();
   color: $color-black;
+  transition: $transition;
+
+  &:hover {
+    color: #8b00ff;
+  }
+}
+
+.nav-bar-inner__item_active {
+  color: #8b00ff;
 }

@@ -24,5 +24,35 @@ const optionsSpirit = [
   { value: 'MINITES', label: 'Miniature Thermal Emission Spectrometer (Mini-TES)' },
 ];
 
+const customStyles = {
+  control: styles => ({
+    ...styles,
+    border: 'none', 
+    borderBottom: '1px solid',
+    borderRadius: 'none',
+  }),
+  singleValue: styles => ({
+    ...styles,
+    fontFamily: 'Space Mono',
+    fontSize: '14px',
+    fontWeight: '400',
+    lineHeight: '16px',
+  }),
+  menu: styles => ({
+    ...styles,
+    fontFamily: 'Space Mono',
+    fontSize: '14px',
+    fontWeight: '400',
+    lineHeight: '16px',
+  }),
+  placeholder: styles => ({
+    ...styles,
+    fontFamily: 'Space Mono',
+    fontSize: '14px',
+    fontWeight: '400',
+    lineHeight: '16px',
+  }),
+}
 
-export { optionsCuriosity, optionsOpportunity, optionsSpirit };
+
+export { optionsCuriosity, optionsOpportunity, optionsSpirit, customStyles };

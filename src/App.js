@@ -4,12 +4,10 @@ import Header from './components/Header';
 import Main from './components/Main';
 import NavBar from './components/NavBar';
 import Mars from './components/Mars';
-// import Select from 'react-select';
-import './scss/styles/app.scss';
 
 function App() {
   return (
-    <div className="App global-wrapper">
+    <div className="app global-wrapper">
     <BrowserRouter>
       <Header/>
       <NavBar/>

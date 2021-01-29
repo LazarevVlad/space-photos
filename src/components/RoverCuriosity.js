@@ -3,7 +3,7 @@ import Rover from './Rover';
 import Api from '../utils/Api';
 import RoverForm from './RoverForm';
 import Card from './Card';
-import { optionsCuriosity } from '../utils/constants';
+import { optionsCuriosity, customStyles } from '../utils/constants';
 
 function RoverCuriosity(props) {
   const {} = props;
@@ -49,6 +49,7 @@ function RoverCuriosity(props) {
       <RoverForm
         options={optionsCuriosity}
         onUpdatePhotos={handleGetPhotos}
+        styles={customStyles}
       />
       <div className="photo-grid">
         {cards.map((card) => 

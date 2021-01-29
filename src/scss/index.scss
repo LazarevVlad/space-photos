@@ -1,11 +1,14 @@
-@import './constants';
-@import './base';
+@import './_vars';
+@import '../vendor/normalize';
 
 @import '../vendor/fonts';
 @import './text-style';
+@import './base';
 
+@import './styles/button';
 @import './styles/app';
 @import './styles/header';
+@import './styles/logo';
 @import './styles/main';
 @import './styles/mars';
 @import './styles/nav-bar';

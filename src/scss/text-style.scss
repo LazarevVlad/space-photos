@@ -1,4 +1,4 @@
-@mixin head() {
+@mixin head-1() {
   font-family: 'Space Mono';
   font-style: bold;
   font-weight: 700;
@@ -6,7 +6,23 @@
   line-height: 40px;
 }
 
+@mixin head-2() {
+  font-family: 'Space Mono';
+  font-style: bold;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+}
+
 @mixin body() {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+@mixin button() {
   font-family: 'Space Mono';
   font-style: normal;
   font-weight: 400;

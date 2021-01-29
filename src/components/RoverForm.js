@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 
 function RoverForm(props) {
-  const { onUpdatePhotos, options } = props;
+  const { onUpdatePhotos, options, styles } = props;
 
   const [selectedOption, setSelectedOption] = useState(null);
   const [sol, setSol] = useState(null)
@@ -17,30 +19,40 @@ function RoverForm(props) {
     onUpdatePhotos(sol, selectedOption.value);
   }
 
+  const useStyles = makeStyles({
+    root: {
+      width: '100%',
+      fontFamily: 'Space Mono',
+      fontSize: '12px',
+      fontWeight: '400',
+      lineHeight: '16px',
+    }
+  })
+
+  const classes = useStyles();
+
   return (
-    <>
+    <div className="rover-container block">
       <form 
       className="rover-form"
       onSubmit={handleSubmit}
       >
-        <input 
+        <TextField
           id="sol"
-          name="sol"
-          type="number"
-          className="rover-form__input"
-          placeholder="sol"
-          required
+          label='sol'
           onChange={handleAddSol}
+          className={classes.root}
         />
         <Select
         defaultValue={selectedOption}
         onChange={setSelectedOption}
         options={options}
         placeholder='Select camera'
-      />
-      <button className="button rover-form__button">Загрузить</button>
+        styles={styles}
+        />
+        <button className="button rover-form__button">Загрузить</button>
       </form>
-    </>
+    </div>
   ) 
 }
 
