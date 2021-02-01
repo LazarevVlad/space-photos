@@ -1,8 +1,9 @@
-import React ,{ useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import Pictures from "./Pictures";
 import api from '../utils/Api';
 
-function Main() {
-  // const {} = props;
+function Main(props) {
+  const {} = props;
 
   const [img, setImg] = useState({
     src: '',
@@ -24,15 +25,16 @@ function Main() {
 
   return(
     <div className="main">
-    <p className="main__title">Astronomy Picture of the Day</p>
-    <div className="main__img-container">
-      <img
-        className="main__img"
-        alt={img.alt}
-        src={img.src}
-      />
-    </div>
-    <p className="main__text">{img.text}</p>
+      <p className="main__title">Astronomy Picture of the Day</p>
+      <div className="main__img-container">
+        <img
+          className="main__img"
+          alt={img.alt}
+          src={img.src}
+        />
+      </div>
+      <p className="main__text">{img.text}</p>
+      <Pictures/>
     </div>
   )
 }

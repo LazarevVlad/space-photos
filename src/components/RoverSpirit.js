@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Rover from './Rover';
-import Api from '../utils/Api';
+import api from '../utils/Api';
 import RoverForm from './RoverForm';
 import Card from './Card';
 import { optionsSpirit } from '../utils/constants';
@@ -19,7 +19,7 @@ function RoverSpirit(props) {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    Api.getRoverInfo('Spirit')
+    api.getRoverInfo('Spirit')
     .then((res) => {
       console.log(res)
       setRoverInfo({
@@ -34,7 +34,7 @@ function RoverSpirit(props) {
   }, [])
 
   function handleGetPhotos(sol, camera) {
-    Api.getPhotoFromRover('spirit', sol, camera)
+    api.getPhotoFromRover('spirit', sol, camera)
     .then((res) => {
       console.log(res.photos)
       setCards(res.photos)
