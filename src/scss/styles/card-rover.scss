@@ -1,8 +1,8 @@
-.card {
+.card-rover {
 
 }
 
-.card__img-container {
+.card-rover__img-container {
   display: block;
   position: relative;
   width: 100%;
@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 
-.card__img {
+.card-rover__img {
   position: absolute;
   top: 0;
   left: 0;
@@ -20,14 +20,6 @@
   object-fit: cover;
 }
 
-.card__description {
-
-}
-
-.card__text {
-
-}
-
-.card__date {
+.card-rover__description {
 
 }

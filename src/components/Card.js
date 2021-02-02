@@ -1,19 +1,25 @@
 import React from 'react';
 
 function Card(props) {
-  const { card } = props;
+  const { card, onCardClick } = props;
 
-  return (
+  function handleCardClick() {
+    onCardClick(card.url, card.title)
+  }
+
+  return  (
     <div className="card">
       <div className="card__img-container">
-        <img
-          src={card.img_src}
-          alt={card.camera.full_name}
+        <img 
           className="card__img"
+          src={card.url}
+          alt={card.title}
+          onClick={handleCardClick}
         />
       </div>
       <div className="card__description">
-        <p>{card.earth_date}</p>
+        <p className="card__text">{card.explanation}</p>
+        <p className="card__date">{card.date}</p>
       </div>
     </div>
   )

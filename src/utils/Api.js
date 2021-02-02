@@ -32,7 +32,7 @@ class Api {
   }
 
   getPictureForThePeriod(startDay, endDay) {
-    return fetch(`${this.options.baseUrl}/planetary/apod?start_date=${startDay}&end_date=${endDay}&api_key=${this.options.apiKey}`, {
+    return fetch(`${this.options.baseUrl}/planetary/apod?api_key=${this.options.apiKey}&start_date=${startDay}&end_date=${endDay}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

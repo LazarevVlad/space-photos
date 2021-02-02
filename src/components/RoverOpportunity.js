@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import Rover from './Rover';
 import api from '../utils/Api';
 import RoverForm from './RoverForm';
-import Card from './Card';
+import CardFromRover from './CardFromRover';
 import { optionsOpportunity } from '../utils/constants';
 
 function RoverOpportunity(props) {
-  const {} = props;
+  const { onCardClick } = props;
 
   const [roverInfo, setRoverInfo] = useState({
     landingDate: '',
@@ -55,9 +55,10 @@ function RoverOpportunity(props) {
       />
       <div className="photo-grid">
         {cards.map((card) => 
-          <Card
+          <CardFromRover
             card={card}
             key={card.id}
+            onCardClick={onCardClick}
           />
         )}
       </div>

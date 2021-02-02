@@ -1,52 +1,88 @@
-import 'date-fns';
+// import 'date-fns';
 import React, { useState } from 'react';
-import DateFnsUtils from '@date-io/date-fns';
 import Grid from '@material-ui/core/Grid';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-import { withStyles } from "@material-ui/core/styles";
+// import { withStyles } from "@material-ui/core/styles";
+// import DateFnsUtils from '@date-io/date-fns';
+import MomentUtils from "@date-io/moment";
+import moment from "moment";
+import Card from "./Card";
 import api from '../utils/Api';
 
 function Pictures(props) {
-  const {} = props;
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
-
-  const handleStartDateChange = (date) => {
+  const { onCardClick } = props;
+  const [startDate, setStartDate] = useState(moment());
+  const [endDate, setEndDate] = useState(moment());
+  const [inputStartValue, setInputStartValue] = useState(moment().format("YYYY-MM-DD"));
+  const [inputEndValue, setInputEndValue] = useState(moment().format("YYYY-MM-DD"));
+  const [cards, setCards] = useState([]);
+  const handleStartDateChange = (date, value) => {
     setStartDate(date);
+    setInputStartValue(value);
   };
-
-  const handleEndDateChange = (date) => {
+  const handleEndDateChange = (date, value) => {
     setEndDate(date);
+    setInputEndValue(value);
+  };
+  const dateFormatter = str => {
+    return str;
   };
 
-  // handleSubmit() {
+  function handleSubmit(e) {
+    e.preventDefault()
 
-  // }
+    api.getPictureForThePeriod(inputStartValue, inputEndValue)
+    .then((res) => {
+      console.log(res);
+      setCards(res)
+    })
+    .catch((err) => console.log(`Ошибка ${err}`));
+  }
+
+  console.log(inputStartValue);
+  console.log(inputEndValue);
 
   return (
     <div className="pictures block">
-      <form className="pictures__form">
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <form className="pictures__form"
+      onSubmit={handleSubmit}
+      >
+        <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils}>
           <Grid container justify="space-around">
-            <KeyboardDatePicker
-              variant="inline"
-              format="yyyy/MM/dd"
-              disableToolbars
-              value={startDate}
-              onChange={handleStartDateChange}
-            />
-            <KeyboardDatePicker
-              variant="inline"
-              format="yyyy/MM/dd"
-              disableToolbars
-              value={endDate}
-              onChange={handleEndDateChange}
-            />
+            <div className="pictures__input-container">
+              <KeyboardDatePicker
+                variant="inline"
+                format="YYYY-MM-DD"
+                value={startDate}
+                inputValue={inputStartValue}
+                onChange={handleStartDateChange}
+                rifmFormatter={dateFormatter}
+              />
+            </div>
+            <div className="pictures__input-container">
+              <KeyboardDatePicker
+                variant="inline"
+                format="YYYY-MM-DD"
+                value={endDate}
+                inputValue={inputEndValue}
+                onChange={handleEndDateChange}
+                rifmFormatter={dateFormatter}
+              />
+            </div>
           </Grid>
         </MuiPickersUtilsProvider>
 
         <button className="button pictures__button">Показать</button>
       </form>
+      <div className="pictures__grid">
+        {cards.map((card, index) => 
+          <Card
+            card={card}
+            key={index}
+            onCardClick={onCardClick}
+          />
+        )}
+      </div>
     </div>
   )
 }

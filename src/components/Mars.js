@@ -5,20 +5,27 @@ import RoverCuriosity from './RoverCuriosity';
 import RoverOpportunity from './RoverOpportunity';
 import RoverSpirit from './RoverSpirit';
 
-function Mars() {
+function Mars(props) {
+  const { onCardClick } = props;
   return(
     <div className="mars">
       <BrowserRouter>
         <NavBarMars />
         <Switch>
           <Route path='/mars/curiosity'>
-            <RoverCuriosity/>
+            <RoverCuriosity 
+              onCardClick={onCardClick}
+            />
           </Route>
           <Route path='/mars/opportunity'>
-            <RoverOpportunity/>
+            <RoverOpportunity 
+              onCardClick={onCardClick}
+            />
           </Route>
           <Route path='/mars/spirit'>
-            <RoverSpirit/>
+            <RoverSpirit 
+              onCardClick={onCardClick}
+            />
           </Route>
         </Switch>
       </BrowserRouter>

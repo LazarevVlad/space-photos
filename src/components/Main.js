@@ -3,7 +3,7 @@ import Pictures from "./Pictures";
 import api from '../utils/Api';
 
 function Main(props) {
-  const {} = props;
+  const { onCardClick } = props;
 
   const [img, setImg] = useState({
     src: '',
@@ -34,7 +34,9 @@ function Main(props) {
         />
       </div>
       <p className="main__text">{img.text}</p>
-      <Pictures/>
+      <Pictures
+        onCardClick={onCardClick}
+      />
     </div>
   )
 }
