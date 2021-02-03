@@ -4,6 +4,7 @@ function ImagePopup(props) {
   const { isOpen, onClose, url, title } = props;
   return (
     <div className={`popup popup_type_img ${isOpen ? 'popup_is-opened' : ''}` }>
+      <div className="popup__overlay" onClick={onClose}></div>
       <div className="popup__content popup__content_image">
         <img
           src={close}

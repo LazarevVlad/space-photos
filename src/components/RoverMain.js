@@ -96,7 +96,7 @@ function RoverMain(props) {
         />
         <button className="button rover-form__button">Загрузить</button>
       </form>
-      <div className="photo-grid">
+      <div className="photo-grid block">
         {cards.map((card) => 
           <CardFromRover
             card={card}

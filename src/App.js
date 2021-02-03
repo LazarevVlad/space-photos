@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Main from './components/Main';
-// import NavBar from './components/NavBar';
 import Mars from './components/Mars';
 import ImagePopup from './components/ImagePopup';
 import PageNotFound from './components/PageNotFound';
+// import Footer from './components/Footer';
 
 
 function App() {
@@ -39,6 +39,7 @@ function App() {
           <PageNotFound/>
         </Route>
       </Switch>
+      {/* <Footer/> */}
     </BrowserRouter>
 
     <ImagePopup

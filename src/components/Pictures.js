@@ -69,7 +69,7 @@ function Pictures(props) {
 
         <button className="button pictures__button">Показать</button>
       </form>
-      <div className="pictures__grid">
+      <div className="pictures__grid block">
         {cards.map((card, index) => 
           <Card
             card={card}
