@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import CardFromRover from './CardFromRover';
+import api from '../utils/Api';
+import { customStyles } from '../utils/constants';
 
-function RoverForm(props) {
-  const { onUpdatePhotos, options, styles } = props;
+
+function RoverMain(props) {
+  const { rover, roverPhoto, onCardClick, options } = props;
 
   const [roverInfo, setRoverInfo] = useState({
     landingDate: '',
@@ -14,9 +18,17 @@ function RoverForm(props) {
     maxDate: '',
     totalPhotos: '',
   });
-
   const [selectedOption, setSelectedOption] = useState(null);
-  const [sol, setSol] = useState(null)
+  const [sol, setSol] = useState(null);
+  const [cards, setCards] = useState([]);
+
+  function handleGetPhotos(roverPhoto, sol, camera) {
+    api.getPhotoFromRover(roverPhoto, sol, camera)
+    .then((res) => {
+      setCards(res.photos);
+    })
+    .catch((err) => console.log(`Ошибка ${err}`));
+  }
 
   function handleAddSol(e) {
     setSol(e.target.value);
@@ -25,11 +37,11 @@ function RoverForm(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    onUpdatePhotos(sol, selectedOption.value);
+    handleGetPhotos(roverPhoto, sol, selectedOption.value);
   }
 
   useEffect(() => {
-    api.getRoverInfo('Curiosity')
+    api.getRoverInfo(rover)
     .then((res) => {
       setRoverInfo({
         landingDate: res.photo_manifest.landing_date,
@@ -58,14 +70,14 @@ function RoverForm(props) {
   return (
     <div className="rover block">
 
-      <div className="rover__info">
-        <p className="rover__text">Landing date: {roverInfo.landingDate}</p>
-        <p className="rover__text">Launch date: {roverInfo.launchDate}</p>
-        <p className="rover__text">Status: {roverInfo.status}</p>
-        <p className="rover__text">Max sol: {roverInfo.maxSol}</p>
-        <p className="rover__text">Max date: {roverInfo.maxDate}</p>
-        <p className="rover__text">Total photos: {roverInfo.totalPhotos}</p>
-      </div>
+      <ul className="rover__list">
+        <li className="rover__item">Landing date: {roverInfo.landingDate}</li>
+        <li className="rover__item">Launch date: {roverInfo.launchDate}</li>
+        <li className="rover__item">Status: {roverInfo.status}</li>
+        <li className="rover__item">Max sol: {roverInfo.maxSol}</li>
+        <li className="rover__item">Max date: {roverInfo.maxDate}</li>
+        <li className="rover__item">Total photos: {roverInfo.totalPhotos}</li>
+      </ul>
 
       <form 
       className="rover__form"
@@ -82,12 +94,21 @@ function RoverForm(props) {
         onChange={setSelectedOption}
         options={options}
         placeholder='Select camera'
-        styles={styles}
+        styles={customStyles}
         />
         <button className="button rover-form__button">Загрузить</button>
       </form>
+      <div className="photo-grid">
+        {cards.map((card) => 
+          <CardFromRover
+            card={card}
+            key={card.id}
+            onCardClick={onCardClick}
+          />
+        )}
+      </div>
     </div>
   ) 
 }
 
-export default RoverForm;
+export default RoverMain;

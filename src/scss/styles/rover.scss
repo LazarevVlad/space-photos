@@ -3,24 +3,27 @@
   max-width: 500px;
 }
 
-.rover__info {
+.rover__list {
+  padding: 0;
+  list-style: none;
   & > * + * {
     margin-top: 10px
   }
 }
 
-.rover__text {
+.rover__item {
   @include body();
 }
 
-.rover-form {
-
+.rover__form {
+  width: 100%;
+  max-width: 500px;
 
   & > * + * {
     margin-top: 20px
   }
 }
 
-.rover-form__button {
+.rover__form__button {
   border: none;
 }

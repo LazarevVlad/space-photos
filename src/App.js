@@ -5,6 +5,7 @@ import Main from './components/Main';
 import NavBar from './components/NavBar';
 import Mars from './components/Mars';
 import ImagePopup from './components/ImagePopup';
+import PageNotFound from './components/PageNotFound';
 
 
 function App() {
@@ -16,7 +17,6 @@ function App() {
   });
 
   function handleCardClick(url, title) {
-    // const { url, title } = card;
     setSelectedCard({isOpen: true, url, title});
   }
   
@@ -35,6 +35,9 @@ function App() {
         </Route>
         <Route path="/mars">
           <Mars onCardClick={handleCardClick}/>
+        </Route>
+        <Route path="*">
+          <PageNotFound/>
         </Route>
       </Switch>
     </BrowserRouter>
