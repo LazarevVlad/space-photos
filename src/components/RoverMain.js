@@ -21,6 +21,16 @@ function RoverMain(props) {
   const [selectedOption, setSelectedOption] = useState(null);
   const [sol, setSol] = useState(null);
   const [cards, setCards] = useState([]);
+  const useStyles = makeStyles({
+    root: {
+      width: '100%',
+      fontFamily: 'Space Mono',
+      fontSize: '12px',
+      fontWeight: '400',
+      lineHeight: '16px',
+    }
+  });
+  const classes = useStyles();
 
   function handleGetPhotos(roverPhoto, sol, camera) {
     api.getPhotoFromRover(roverPhoto, sol, camera)
@@ -54,18 +64,6 @@ function RoverMain(props) {
     })
     .catch((err) => console.log(`Ошибка ${err}`));
   }, [])
-
-  const useStyles = makeStyles({
-    root: {
-      width: '100%',
-      fontFamily: 'Space Mono',
-      fontSize: '12px',
-      fontWeight: '400',
-      lineHeight: '16px',
-    }
-  })
-
-  const classes = useStyles();
 
   return (
     <div className="rover block">

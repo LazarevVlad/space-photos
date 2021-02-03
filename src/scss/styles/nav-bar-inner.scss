@@ -13,10 +13,10 @@
   transition: $transition;
 
   &:hover {
-    color: #8b00ff;
+    color: $color-brand-1;
   }
 }
 
 .nav-bar-inner__item_active {
-  color: #8b00ff;
+  color: $color-brand-1;
 }

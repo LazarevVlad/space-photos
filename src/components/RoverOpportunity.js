@@ -5,7 +5,6 @@ import { optionsOpportunity } from '../utils/constants';
 function RoverOpportunity(props) {
   const { onCardClick } = props;
 
-
   return (
     <>
       <RoverMain

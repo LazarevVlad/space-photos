@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Main from './components/Main';
-import NavBar from './components/NavBar';
+// import NavBar from './components/NavBar';
 import Mars from './components/Mars';
 import ImagePopup from './components/ImagePopup';
 import PageNotFound from './components/PageNotFound';
@@ -28,7 +28,6 @@ function App() {
     <div className="app global-wrapper">
     <BrowserRouter>
       <Header/>
-      <NavBar/>
       <Switch>
         <Route exact path="/">
           <Main onCardClick={handleCardClick}/>

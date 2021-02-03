@@ -1,11 +1,8 @@
-// import 'date-fns';
 import React, { useState } from 'react';
+import moment from "moment";
+import MomentUtils from "@date-io/moment";
 import Grid from '@material-ui/core/Grid';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-// import { withStyles } from "@material-ui/core/styles";
-// import DateFnsUtils from '@date-io/date-fns';
-import MomentUtils from "@date-io/moment";
-import moment from "moment";
 import Card from "./Card";
 import api from '../utils/Api';
 
@@ -39,9 +36,6 @@ function Pictures(props) {
     .catch((err) => console.log(`Ошибка ${err}`));
   }
 
-  console.log(inputStartValue);
-  console.log(inputEndValue);
-
   return (
     <div className="pictures block">
       <form className="pictures__form"
@@ -57,6 +51,7 @@ function Pictures(props) {
                 inputValue={inputStartValue}
                 onChange={handleStartDateChange}
                 rifmFormatter={dateFormatter}
+                animateYearScrolling="'true"
               />
             </div>
             <div className="pictures__input-container">

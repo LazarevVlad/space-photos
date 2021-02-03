@@ -5,8 +5,6 @@ import { optionsCuriosity } from '../utils/constants';
 function RoverCuriosity(props) {
   const { onCardClick } = props;
 
-  
-
   return (
     <>
       <RoverMain

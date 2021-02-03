@@ -21,13 +21,18 @@
 }
 
 .card__description {
-
+  box-sizing: border-box;
+  margin-top: 20px;
+  padding: 0 10px;
+  & > * + * {
+    margin-top: 10px
+  }
 }
 
 .card__text {
-
+  @include body-1();
 }
 
 .card__date {
-
+  @include body-1();
 }
