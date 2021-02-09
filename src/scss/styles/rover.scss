@@ -1,0 +1,29 @@
+.rover-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.rover__list {
+  padding: 0;
+  list-style: none;
+  & > * + * {
+    margin-top: 10px
+  }
+}
+
+.rover__item {
+  @include body();
+}
+
+.rover__form {
+  width: 100%;
+  max-width: 500px;
+
+  & > * + * {
+    margin-top: 20px
+  }
+}
+
+.rover__form__button {
+  border: none;
+}

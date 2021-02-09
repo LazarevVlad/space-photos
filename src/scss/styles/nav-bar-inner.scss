@@ -1,0 +1,22 @@
+.nav-bar-inner {
+  display: flex;
+
+  & > * + * {
+    margin-left: 30px;
+  }
+}
+
+.nav-bar-inner__item {
+  text-decoration: none;
+  @include head-2();
+  color: $color-black;
+  transition: $transition;
+
+  &:hover {
+    color: $color-brand-1;
+  }
+}
+
+.nav-bar-inner__item_active {
+  color: $color-brand-1;
+}

@@ -1,0 +1,44 @@
+.nav-bar {
+
+}
+
+.nav-bar__item {
+  position: relative;
+  @include head-1();
+  color: $color-black;
+  text-decoration: none;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 2px;
+    background-color: #000000;
+    transition: $transition;
+  }
+
+  &:hover {
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+.nav-bar__item_active {
+  color: $color-brand-1;
+
+  &:before {
+    background-color: $color-brand-1;
+  }
+
+  &:hover {
+    &:before {
+      background-color: $color-brand-1;
+    }
+  }
+
+}
