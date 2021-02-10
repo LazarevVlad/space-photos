@@ -1,0 +1,13 @@
+.error {
+  margin: 60px auto;
+  display: none;
+  max-width: 600px;
+
+  &_is-shown {
+    display: block;
+  }
+}
+
+.error__text {
+  @include body();
+}

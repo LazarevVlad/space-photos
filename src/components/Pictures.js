@@ -40,12 +40,14 @@ function Pictures(props) {
 
   return (
     <div className="pictures block">
+      <p className="pictures__title">Select search period</p>
       <form className="pictures__form"
       onSubmit={handleSubmit}
       >
         <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils}>
           <Grid container justify="space-around">
             <div className="pictures__input-container">
+              <p className="pictures__input-title">Start date</p>
               <KeyboardDatePicker
                 variant="inline"
                 format="YYYY-MM-DD"
@@ -57,6 +59,7 @@ function Pictures(props) {
               />
             </div>
             <div className="pictures__input-container">
+              <p className="pictures__input-title">End date</p>
               <KeyboardDatePicker
                 variant="inline"
                 format="YYYY-MM-DD"

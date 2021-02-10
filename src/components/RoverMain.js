@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardFromRover from './CardFromRover';
 import api from '../utils/Api';
 import Preloader from "./Preloader";
+import Error from "./Error";
 import { customStyles } from '../utils/constants';
 
 
@@ -22,6 +23,7 @@ function RoverMain(props) {
   const [sol, setSol] = useState(null);
   const [cards, setCards] = useState([]);
   const [renderPreloader, setRenderPreloader] = useState(false);
+  const [renderError, setRenderError] = useState(false);
   const useStyles = makeStyles({
     root: {
       width: '100%',
@@ -34,11 +36,18 @@ function RoverMain(props) {
   const classes = useStyles();
 
   function handleGetPhotos(roverPhoto, sol, camera) {
+    setCards([]);
     setRenderPreloader(true);
+    setRenderError(false);
     api.getPhotoFromRover(roverPhoto, sol, camera)
     .then((res) => {
-      setCards(res.photos);
-      setRenderPreloader(false);
+        if (res.photos.length === 0) {
+          setRenderPreloader(false);
+          setRenderError(true);
+        } else {
+          setCards(res.photos);
+          setRenderPreloader(false);
+        }
     })
     .catch((err) => console.log(`Ошибка ${err}`));
   }
@@ -70,6 +79,7 @@ function RoverMain(props) {
 
   return (
     <div className="rover block">
+      <div className="rover__description"></div>
 
       <ul className="rover__list">
         <li className="rover__item">Landing date: {roverInfo.landingDate}</li>
@@ -99,6 +109,10 @@ function RoverMain(props) {
         />
         <button className="button rover-form__button">Загрузить</button>
       </form>
+      <Error 
+        isShown={renderError} 
+        text="There are no photos from this camera in this sol"
+      />
       <Preloader isShown={renderPreloader}/>
       <div className="photo-grid block">
         {cards.map((card) => 

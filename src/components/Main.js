@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Pictures from "./Pictures";
 import api from '../utils/Api';
+import Footer from './Footer';
 import { regExpImg } from '../utils/constants';
 
 
@@ -54,6 +55,7 @@ function Main(props) {
       <Pictures
         onCardClick={onCardClick}
       />
+      <Footer/>
     </div>
   )
 }
