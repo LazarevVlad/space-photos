@@ -1,3 +1,5 @@
+@import './libs/encode';
+@import './icons';
 @import './_vars';
 @import '../vendor/normalize';
 
@@ -20,3 +22,6 @@
 @import './styles/pictures';
 @import './styles/card';
 @import './styles/not-found';
+@import './styles/preloader';
+@import './styles/error';
+@import './styles/footer';

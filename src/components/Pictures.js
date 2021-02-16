@@ -4,6 +4,7 @@ import MomentUtils from "@date-io/moment";
 import Grid from '@material-ui/core/Grid';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import Card from "./Card";
+import Preloader from "./Preloader";
 import api from '../utils/Api';
 
 function Pictures(props) {
@@ -13,6 +14,7 @@ function Pictures(props) {
   const [inputStartValue, setInputStartValue] = useState(moment().format("YYYY-MM-DD"));
   const [inputEndValue, setInputEndValue] = useState(moment().format("YYYY-MM-DD"));
   const [cards, setCards] = useState([]);
+  const [renderPreloader, setRenderPreloader] = useState(false);
   const handleStartDateChange = (date, value) => {
     setStartDate(date);
     setInputStartValue(value);
@@ -27,23 +29,25 @@ function Pictures(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
-
+    setRenderPreloader(true);
     api.getPictureForThePeriod(inputStartValue, inputEndValue)
     .then((res) => {
-      console.log(res);
-      setCards(res)
+      setCards(res);
+      setRenderPreloader(false);
     })
     .catch((err) => console.log(`Ошибка ${err}`));
   }
 
   return (
     <div className="pictures block">
+      <p className="pictures__title">Select search period</p>
       <form className="pictures__form"
       onSubmit={handleSubmit}
       >
         <MuiPickersUtilsProvider libInstance={moment} utils={MomentUtils}>
           <Grid container justify="space-around">
             <div className="pictures__input-container">
+              <p className="pictures__input-title">Start date</p>
               <KeyboardDatePicker
                 variant="inline"
                 format="YYYY-MM-DD"
@@ -55,6 +59,7 @@ function Pictures(props) {
               />
             </div>
             <div className="pictures__input-container">
+              <p className="pictures__input-title">End date</p>
               <KeyboardDatePicker
                 variant="inline"
                 format="YYYY-MM-DD"
@@ -69,6 +74,7 @@ function Pictures(props) {
 
         <button className="button pictures__button">Показать</button>
       </form>
+      <Preloader isShown={renderPreloader}/>
       <div className="pictures__grid block">
         {cards.map((card, index) => 
           <Card

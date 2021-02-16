@@ -54,5 +54,7 @@ const customStyles = {
   }),
 }
 
+const regExpImg = /.(jpg|png|jpeg|svg)$/;
 
-export { optionsCuriosity, optionsOpportunity, optionsSpirit, customStyles };
+
+export { optionsCuriosity, optionsOpportunity, optionsSpirit, customStyles, regExpImg };

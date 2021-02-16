@@ -1,0 +1,43 @@
+.footer {
+  display: flex;
+}
+
+.footer__copyight {
+  margin-left: 0;
+  margin: auto;
+}
+
+.footer__list {
+  margin-right: 0;
+  margin-left: auto;
+  display: flex;
+  list-style: none;
+  
+  & > * + * {
+    margin-left: 20px;
+  }
+}
+
+.footer__item {
+
+}
+
+.footer__link {
+
+}
+
+.footer__link-icon {
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &_github {
+    background-image: icon-github();
+  }
+
+  &_telegram {
+    background-image: icon-telegram();
+  }
+}
