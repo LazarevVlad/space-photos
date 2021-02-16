@@ -9,12 +9,14 @@ import api from '../utils/Api';
 
 function Pictures(props) {
   const { onCardClick } = props;
+  
   const [startDate, setStartDate] = useState(moment());
   const [endDate, setEndDate] = useState(moment());
   const [inputStartValue, setInputStartValue] = useState(moment().format("YYYY-MM-DD"));
   const [inputEndValue, setInputEndValue] = useState(moment().format("YYYY-MM-DD"));
   const [cards, setCards] = useState([]);
   const [renderPreloader, setRenderPreloader] = useState(false);
+
   const handleStartDateChange = (date, value) => {
     setStartDate(date);
     setInputStartValue(value);
