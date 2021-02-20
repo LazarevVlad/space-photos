@@ -3,6 +3,7 @@ import Select from 'react-select';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import CardFromRover from './CardFromRover';
+import RoverSpecifications from './RoverSpecifications';
 import api from '../utils/Api';
 import Preloader from "./Preloader";
 import Error from "./Error";
@@ -10,7 +11,7 @@ import { customStyles } from '../utils/constants';
 
 
 function RoverMain(props) {
-  const { rover, roverPhoto, onCardClick, options } = props;
+  const { rover, roverPhoto, onCardClick, options, img, info } = props;
   const [roverInfo, setRoverInfo] = useState({
     landingDate: '',
     launchDate: '',
@@ -75,11 +76,14 @@ function RoverMain(props) {
       });
     })
     .catch((err) => console.log(`Ошибка ${err}`));
-  }, [])
-
+  }, []);
+  
   return (
     <div className="rover block">
-      <div className="rover__description"></div>
+      <RoverSpecifications 
+        img={img}
+        info={info}
+      />
 
       <ul className="rover__list">
         <li className="rover__item">Landing date: {roverInfo.landingDate}</li>

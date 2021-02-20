@@ -1,6 +1,7 @@
 import React from 'react';
 import RoverMain from './RoverMain';
-import { optionsSpirit } from '../utils/constants';
+import { optionsSpirit, SpiritDetails } from '../utils/constants';
+import img from '../images/Spirit.jpg';
 
 function RoverSpirit(props) {
   const { onCardClick } = props;
@@ -12,6 +13,8 @@ function RoverSpirit(props) {
         roverPhoto="spirit"
         onCardClick={onCardClick}
         options={optionsSpirit}
+        img={img}
+        info={SpiritDetails}
       />
     </>
   )
