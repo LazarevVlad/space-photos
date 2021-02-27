@@ -21,6 +21,19 @@
   cursor: pointer;
 }
 
-.card-rover__description {
+.card-rover__footer {
+  box-sizing: border-box;
+  padding: 0 5px;
+  margin-top: 20px;
+  display: flex;
+}
 
+.card-rover__date {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.card-rover__button {
+  margin-right: 0;
+  margin-left: auto;
 }

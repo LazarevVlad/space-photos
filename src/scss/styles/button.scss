@@ -16,3 +16,24 @@
     opacity: .7;
   }
 }
+
+.button-like {
+  background-image: icon-like();
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  width: 21px;
+  height: 19px;
+  cursor: pointer;
+  transition: transform 0.3s linear;
+  outline: none;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &_active {
+    background-image: icon-like-active();
+  }
+}
