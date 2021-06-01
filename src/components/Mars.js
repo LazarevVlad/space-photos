@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, useRouteMatch, NavLink  } from 'react-router-dom';
 import RoverCuriosity from './RoverCuriosity';
 import RoverOpportunity from './RoverOpportunity';
+import RoverPerseverance from './RoverPerseverance';
 import RoverSpirit from './RoverSpirit';
 
 function Mars(props) {
@@ -13,6 +14,9 @@ function Mars(props) {
         <NavLink className="nav-bar-inner__item" activeClassName="nav-bar-inner__item_active"  to={`${url}/curiosity`}>
           Curiosity
         </NavLink>
+        <NavLink className="nav-bar-inner__item" activeClassName="nav-bar-inner__item_active"  to={`${url}/perseverance`}>
+          Perseverance
+        </NavLink>
         <NavLink className="nav-bar-inner__item" activeClassName="nav-bar-inner__item_active" to={`${url}/opportunity`}>
           Opportunity
         </NavLink>
@@ -22,6 +26,11 @@ function Mars(props) {
       </nav>
         <Route path={`${path}/curiosity`}>
           <RoverCuriosity 
+            onCardClick={onCardClick}
+          />
+        </Route>
+        <Route path={`${path}/perseverance`}>
+          <RoverPerseverance 
             onCardClick={onCardClick}
           />
         </Route>
