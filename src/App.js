@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Main from './components/Main';
 import Mars from './components/Mars';
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="app global-wrapper">
-    <BrowserRouter>
+    <HashRouter>
       <Header/>
       <Switch>
         <Route exact path="/">
@@ -40,7 +40,7 @@ function App() {
         </Route>
       </Switch>
       {/* <Footer/> */}
-    </BrowserRouter>
+    </HashRouter>
 
     <ImagePopup
       isOpen={selectedCard.isOpen}
